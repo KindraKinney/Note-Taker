@@ -35,3 +35,20 @@ app.post("/api/notes", function (req, res) {
     note.push(newNote);
     res.json(newNote);
 });
+
+//---------------Delete Note-----------
+
+app.delete("/api/notes/:id", function (req, res) {
+    for( i = 0; i < note.length; i++){
+        if (req.params.id == note[i].id){
+            note.splice(i,1)
+        }
+        res.json(req.body);
+    } 
+ });
+ 
+ 
+ //-----Starts the server to begin listening-------
+ app.listen(PORT, function () {
+     console.log("App listening on PORT http://localhost:" + PORT);
+ });
